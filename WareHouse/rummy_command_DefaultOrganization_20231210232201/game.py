@@ -60,7 +60,7 @@ class Game:
         return False
     def check_winner(self):
         for player in self.players:
-            if len(player.hand) == 0:
+            if len(player.hand) == 0 or player.calculate_points() >= 500:
                 print(f"\n{player.name} wins!")
                 return True
         return False

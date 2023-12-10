@@ -14,3 +14,13 @@ class Player:
     def meld_cards(self, meld_indices):
         melded_cards = [self.hand.pop(index) for index in sorted(meld_indices, reverse=True)]
         self.hand.extend(melded_cards)
+    def calculate_points(self):
+        points = 0
+        for card in self.hand:
+            if card.rank in ["J", "Q", "K"]:
+                points += 10
+            elif card.rank == "A":
+                points += 15
+            else:
+                points += int(card.rank)
+        return points
